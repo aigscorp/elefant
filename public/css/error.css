@@ -1,0 +1,17 @@
+.button {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: beige;
+}
+.red {
+    color: red;
+}
+.has-error .form-control{
+    border-width: 2px;
+    border-color: red !important;
+ }
+ .msg {
+     color:#ec0a0a;
+ }

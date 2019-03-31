@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <title>Добавить задачу</title>
+</head>
+<body>
+  {% include 'navbar.html.twig' %}
+  <div class="container" id="main_container">
+    <h1>Добавить задачу</h1>
+    <form action="/task/add" method="post" id="task_form">
+    
+      <div class="form-group col-lg-7 col-md-7 ">
+        <label for="tasknum" title="номер задачи">Задача №</label>
+        <input type="number" min="1" max="20" class="form-control" name="numb" id="tasknum" value="1" title="номер задачи">
+      </div>
+
+      <div class="form-group col-lg-7 col-md-7 ">
+        <label for="theme" title="Краткое описание">Тема:</label>
+        <input type="text" class="form-control" name="theme" id="theme" value="" title="Краткое описание">
+      </div>
+    
+      <div class="form-group col-lg-7 col-md-7 ">
+        <label for="task_text" title="Минимум один, максимум 2000 знаков">Текст:</label>
+        <textarea cols="80" rows="10" class="form-control" name="task_text" id="task_text" title="Минимум один, максимум 2000 знаков"></textarea>
+      </div>
+      <!-- скрытые поля для хранения данных и кнопки -->
+      <div class="form-group col-lg-7 col-md-7 pull-right">
+        <input type="hidden" name="tasksent" value="1">
+        <button type="submit">Сохранить</button>
+      </div>
+    </form>
+  </div>
+
+
+
+  </div>
+
+</body>
+</html>

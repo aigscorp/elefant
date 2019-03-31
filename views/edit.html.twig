@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Задачник</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<form action="/task/save" method="post">
+		<div class="form-group">
+			<label for="task_text" title="Максимум 2000 знаков">Текст задачи номер {{ task_id }}</label>
+			<textarea cols="80" rows="10" class="form-control"
+			          name="task_text" id="task_text">{{ task_text }}</textarea>
+		</div>
+		<div class="form-group">
+			<input type="hidden" name="task_id" value="{{ task_id }}">
+			<input type="hidden" name="user_id" value="{{ user_id }}">
+			<input type="hidden" name="fulfilled" value="{{ status }}">
+			<button type="submit" class="btn btn-default">Сохранить</button>
+			<a href="/index/pager/page/{{ page_id }}"  class="btn btn-default">Вернуться</a>
+		</div>
+	</form>
+</div>
+</body>

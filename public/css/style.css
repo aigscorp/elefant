@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.wrap {
+  margin: 0 auto;
+}
+#svg {
+  /* width: 100%; */
+  /* height: 100%; */
+}
+.mod-color {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 600;
+}
+/* #wraptask{
+  display: flex;
+  position: relative;
+}
+
+.spin {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 12px;
+  height: calc(2.25rem + 2px);
+  padding: 0px 10px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+}
+.spin .up::after {
+  content: 	'\25B2';
+}
+.spin .down::after {
+  content: 	'\25BC';
+} */

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="public/css/list.css"/> -->
+	{#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>#}
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> -->
+  <title>Задачник</title>
+</head>
+<body>
+  {% include 'navbar.html.twig' %}
+  <div class="container">
+  {% if newtask %}
+    <h4>{{ newtask }}</h4>
+  {% endif %}
+  {% if newuser %}
+    <h4>Успешная регистрация</h4>
+  {% endif %}
+  <div class="task">
+    {% for i in result %}
+      {# {% for j in i %} #}
+      <div class="card">
+        <h5 class="card-header" style="border-bottom: none">
+          <p>Имя пользователя:  {{ i.user }}</p>
+          <p>Задача № {{ i.numb }}</p>
+          <p>Тема:  {{ i.theme }}</p>
+          {% if i.status == false %}
+            <p>Статус:  {{ 'Не выполнено' }}</p>
+          {% else %}
+            <p>Статус:  {{ 'Выполнено' }}</p>
+          {% endif %}
+        </h5>
+        <div class="card-body">
+          {% if i.logged %}
+            <form action="/task/edit" method="post">
+              <div class="form-group">
+                <label for="status">Выполнено</label>
+                <input type="checkbox" id = "status" name="fulfilled" value="1">
+              </div>
+              <div class="form-group">
+                <input type="hidden" name="task_id" value="{{ i.numb }}">
+                <input type="hidden" name="user_id" value="{{ i.user }}">
+                <input type="hidden" name="page_id" value="{{ page }}">
+                <button type="submit" class="btn btn-default">Редактировать</button>
+              </div>
+            </form>
+          {% endif %}
+          <p class="card-text">{{ i['text'] }}</p>
+          
+        </div>
+      </div>
+        
+      {# {% endfor %} #}
+    {% endfor %}
+    
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="/index/pager/page/prev" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="/index/pager/page/{{ one }}">{{ one }}</a></li>
+        <li class="page-item"><a class="page-link" href="/index/pager/page/{{ two }}">{{ two }}</a></li>
+        <li class="page-item"><a class="page-link" href="/index/pager/page/{{ three }}">{{ three }}</a></li>
+        {# <li class="page-item"><a class="page-link" href="/index/pager/page/4">4</a></li> #}
+        <li class="page-item">
+          <a class="page-link" href="/index/pager/page/next" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav> 
+
+  </div>
+</div>
+  
+</body>
+</html> 
